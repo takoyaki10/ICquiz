@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アイクラクイズ</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('aikura.png'); /* 画像パス */
+            margin: 0;
+            padding: 0;
+        }
+        
+        .wf-nicomoji { 
+            font-family: "Nico Moji"; 
+            font-size: 48px;
+        }
+
+        .wf-roundedmplus1c {
+             font-family: "M PLUS Rounded 1c"; 
+        }
+
+        #normal-container {
+            display: none;
+            background-color: black;
+            color: #5ba7f2;
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 200px;
+            font-size: 30px;
+            font-family: "M PLUS Rounded 1c";
+            border: 3px solid #5ba7f2;
+            border-radius: 32px;
+        }
+
+        #quiz-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            font-size: 20px;
+            background-image: url('tile2.png');
+            background-size: cover;
+            background-position: center; /* 背景画像を中央に配置 */
+            color: black;
+            border: 6px solid blue;
+            border-radius: 32px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .start-button {
+            font-family: "Nico Moji"; 
+            color: black;
+            padding: 10px 20px;
+            font-size: 32px;
+            margin-top: 20px;
+            text-decoration: none;    /* 下線を削除 */
+            background: none;         /* ボタンの背景色を削除 */
+            border: none;
+            cursor: pointer;          /* カーソルをボタン風に */
+            text-decoration: none;    /* 文字の装飾を削除 */
+            transition: color 0.3s, transform 0.2s; /* 色と動きの変化をなめらかに */
+        }
+        .start-button:hover {
+            color: blue;           /* ホバー時の文字色 */
+            transform: scale(1.1);    /* 少し拡大 */
+        }
+        .start-button:focus {
+            outline: none;            /* フォーカス時の枠を消す */
+            color: blue;           /* フォーカス時もホバーと同じ色 */
+        }
+
+        .ans-button {
+            font-family: "Nico Moji"; 
+            color: black;
+            padding: 10px 20px;
+            font-size: 30px;
+            margin-top: 20px;
+            text-decoration: none;    /* 下線を削除 */
+            background: none;         /* ボタンの背景色を削除 */
+            border: none;
+            cursor: pointer;          /* カーソルをボタン風に */
+            text-decoration: none;    /* 文字の装飾を削除 */
+            transition: color 0.3s, transform 0.2s; /* 色と動きの変化をなめらかに */
+        }
+        .ans-button:hover {
+            color: blue;           /* ホバー時の文字色 */
+            transform: scale(1.1);    /* 少し拡大 */
+        }
+        .ans-button:focus {
+            outline: none;            /* フォーカス時の枠を消す */
+            color: blue;           /* フォーカス時もホバーと同じ色 */
+        }
+        #explanation-container {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 30px;
+        border-top: 1px solid #101111;
+
+        }
+
+        .explanation-item {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 5px solid #5ba7f2;
+        border-radius: 5px;
+        background-color: #090909;
+        color: #5ba7f2;
+        border-radius: 32px;
+        }
+
+        .explanation-item strong {
+        color: #091db6;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="start-screen">
+            <h1 class="wf-nicomoji">アイクラクイズ</h1>
+            <button class="start-button" onclick="startQuiz()">スタート</button>
+        </div>
+        <div id="question-screen" style="display: none;">
+            <h2 id="question-title" class="wf-roundedmplus1c">ここに質問が表示されます</h2>
+            <div id="choices"></div>
+            <h3 id="timer" class="wf-nicomoji"></h3>
+            <button class="start-button" onclick="giveup()">わかんない</button>
+        </div>
+        <div id="result-screen" style="display: none;">
+            <h1>～結果発表～</h1>
+            <p id="result-text" class="wf-nicomoji">あなたのスコアは 0 です。</p>
+            <p id="last-text" class="wf-nicomoji">いいかんじのメッセージ</p>
+            <button class="start-button" onclick="restartQuiz()">ときをもどす</button>
+            
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <p id="normal-container"><span >回答と解説</span></p>
+
+    <div id="explanation-container" class="wf-roundedmplus1c"></div> <!-- 解説コンテナ -->
+
+    <script src="script.js"></script>
+</body>
+</html>
