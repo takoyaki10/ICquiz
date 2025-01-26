@@ -8,6 +8,45 @@
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
     <style>
+        @media (max-width: 600px) {
+        body {
+        font-size: 14px; /* ベースフォントサイズを縮小 */
+        }
+        #quiz-container {
+        max-width: 90%; /* コンテナの幅を縮小して中央寄せ */
+        font-size: 6px; /* テキストのサイズを調整 */
+        padding: 5px; /* 内側の余白を減らす */
+        border-width: 3px; /* 枠線を少し細くする */
+        }
+
+        .start-button, .ans-button {
+        font-size: 20px; /* ボタンの文字サイズを小さく */
+        padding: 8px 15px; /* ボタンの余白を減らす */
+        }
+
+        #normal-container {
+        max-width: 90%; /* コンテナ幅を画面にフィットさせる */
+        font-size: 18px; /* テキストサイズを調整 */
+        padding: 10px;
+        }
+
+        #explanation-container {
+        font-size: 16px; /* 解説部分の文字サイズを縮小 */
+        }
+
+        .explanation-item {
+        padding: 8px; /* 解説の内側余白を減らす */
+        font-size: 14px;
+        }
+
+        #choices{
+        font-size: 8;
+        }
+
+        h1, h2, h3 {
+        font-size: 20px; /* 見出しサイズを小さく */
+            }
+        }
         body {
             font-family: Arial, sans-serif;
             text-align: center;
