@@ -132,7 +132,7 @@ function showResult() {
     if(newscore == 40) document.getElementById("last-text").innerText = `よくないよ アイクラもないている`;
     if(newscore == 30) document.getElementById("last-text").innerText = `すごい てきとうにえらんだみたいなてんすう`;
     if(newscore == 20) document.getElementById("last-text").innerText = `ひかんしちゃだめ やっぱしろ`;
-    if(newscore == 10) document.getElementById("last-text").innerText = `よろこべ 100てんまんのテストだよ`;
+    if(newscore == 10) document.getElementById("last-text").innerText = `よろこべ 100てんまんてんのテストだよ`;
     if(newscore == 0) document.getElementById("last-text").innerText = `ぎゃくにすごい わけでもない`;
     const container = document.getElementById("normal-container");
     container.style.display = "block";
