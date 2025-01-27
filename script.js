@@ -7,7 +7,7 @@ const questions = [
     },
     {
         question: "Q2 最もセンスのいいカラーは？<br>※作問者の独断とする",
-        choices: ["1P(<span style='color: rgb(106, 90, 205);'>あお</span>/<span style='color: pink;'>ピンク</span>)", "2P(<span style='color: blue;'>あお</span>/<span style='color: rgb(0, 132, 255);'>みずいろ</span>)", "7P(<span style='color: lightcyan;'>みずいろ</span>/<span style='color: lightcyan;'>みずいろ</span>)", "8(<span style='color: orange;'>オレンジ</span>/<span style='color: purple;'>むらさき</span>)"],
+        choices: ["1P(<span style='color: rgb(106, 90, 205);'>あお</span>/<span style='color: pink;'>ピンク</span>)", "2P(<span style='color: blue;'>あお</span>/<span style='color: rgb(0, 132, 255);'>みずいろ</span>)", "7P(<span style='color: lightcyan;'>みずいろ</span>/<span style='color: lightcyan;'>みずいろ</span>)", "8P(<span style='color: orange;'>オレンジ</span>/<span style='color: purple;'>むらさき</span>)"],
         correct: 1,
         explanation: "問題の枠組みのデザインが青と水色を基調としていることから作問者にとってセンスのいいカラーは2Pだと推測できるよね 忖度ではない"
     },
@@ -27,7 +27,7 @@ const questions = [
         question: "Q5 アイクラが負けた時にリザルトでする拍手は",
         choices: ["ふたりどうじである", "ナナがすこしおくれる", "ポポがすこしおくれる", "カラバリによる"],
         correct: 4,
-        explanation: "アイクラはめそめそ泣いて拍手をしないことから わからない が正解  かわいい"
+        explanation: "アイクラはめそめそ泣いて拍手をしないことから わかんない が正解  かわいい"
     },
     {
         question: "Q6 技の全体フレームに関する記述で正しいものは？<br>1. 下強 < 空上 < 空後 < 横強 < DA<br>2. 空上 = 空後 < 下強 = 横強 < DA<br>3. 下強 < 横強 < 空上 = DA = 空後<br>4. 下強 < 横強 < DA < 空上 = 空後<br>5. 下強 < 横強 < 空上 = 空後 < DA",
@@ -143,7 +143,7 @@ function showResult() {
         if(index == 4){
             explanationElement.innerHTML = `
             <p>${q.question}</p>
-            <p>正解: わからない</p>
+            <p>正解: わかんない</p>
             <p>解説: ${q.explanation}</p>
         `;
         explanationContainer.appendChild(explanationElement);
