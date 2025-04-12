@@ -3,56 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アイクラクイズ</title>
+    <title>アイクラ道場</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="quiz/favicon.ico" type="image/x-icon">
 
     <style>
-        @media (max-width: 600px) {
-        body {
-        font-size: 14px; /* ベースフォントサイズを縮小 */
-        }
-        #quiz-container {
-        max-width: 90%; /* コンテナの幅を縮小して中央寄せ */
-        font-size: 6px; /* テキストのサイズを調整 */
-        padding: 5px; /* 内側の余白を減らす */
-        border-width: 3px; /* 枠線を少し細くする */
-        }
-
-        .start-button, .ans-button {
-        font-size: 20px; /* ボタンの文字サイズを小さく */
-        padding: 8px 15px; /* ボタンの余白を減らす */
-        }
-
-        #normal-container {
-        max-width: 90%; /* コンテナ幅を画面にフィットさせる */
-        font-size: 18px; /* テキストサイズを調整 */
-        padding: 10px;
-        }
-
-        #explanation-container {
-        font-size: 16px; /* 解説部分の文字サイズを縮小 */
-        }
-
-        .explanation-item {
-        padding: 8px; /* 解説の内側余白を減らす */
-        font-size: 14px;
-        }
-
-        #choices{
-        font-size: 8;
-        }
-
-        h1, h2, h3 {
-        font-size: 20px; /* 見出しサイズを小さく */
-            }
-        }
-
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-image: url('aikura.png'); /* 画像パス */
+            background-image: url('quiz/aikura.png'); /* 画像パス */
             background-size: 50% auto; /* 横幅いっぱい、高さは自動調整 */
             background-attachment: fixed;
             margin: 0;
@@ -68,121 +28,57 @@
              font-family: "M PLUS Rounded 1c"; 
         }
 
-        #normal-container {
-            display: none;
-            background-color: black;
-            color: #5ba7f2;
-            margin: 50px auto;
-            padding: 20px;
-            max-width: 200px;
-            font-size: 30px;
-            font-family: "M PLUS Rounded 1c";
-            border: 3px solid #5ba7f2;
-            border-radius: 32px;
-        }
-
         #quiz-container {
             max-width: 1200px;
             margin: 50px auto;
             padding: 20px;
             font-size: 20px;
+            font-family: "M PLUS Rounded 1c";
             background-color: rgb(159, 218, 249);
             color: black;
             border: 6px solid blue;
             border-radius: 32px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .start-button {
-            font-family: "Nico Moji"; 
-            color: black;
-            padding: 10px 20px;
-            font-size: 32px;
-            margin-top: 20px;
-            text-decoration: none;    /* 下線を削除 */
-            background: none;         /* ボタンの背景色を削除 */
-            border: none;
-            cursor: pointer;          /* カーソルをボタン風に */
-            text-decoration: none;    /* 文字の装飾を削除 */
-            transition: color 0.3s, transform 0.2s; /* 色と動きの変化をなめらかに */
-        }
-        .start-button:hover {
-            color: blue;           /* ホバー時の文字色 */
-            transform: scale(1.1);    /* 少し拡大 */
-        }
-        .start-button:focus {
-            outline: none;            /* フォーカス時の枠を消す */
-            color: blue;           /* フォーカス時もホバーと同じ色 */
-        }
-
-        .ans-button {
-            font-family: "Nico Moji"; 
-            color: black;
-            padding: 10px 20px;
-            font-size: 30px;
-            margin-top: 20px;
-            text-decoration: none;    /* 下線を削除 */
-            background: none;         /* ボタンの背景色を削除 */
-            border: none;
-            cursor: pointer;          /* カーソルをボタン風に */
-            text-decoration: none;    /* 文字の装飾を削除 */
-            transition: color 0.3s, transform 0.2s; /* 色と動きの変化をなめらかに */
-        }
-        .ans-button:hover {
-            color: blue;           /* ホバー時の文字色 */
-            transform: scale(1.1);    /* 少し拡大 */
-        }
-        .ans-button:focus {
-            outline: none;            /* フォーカス時の枠を消す */
-            color: blue;           /* フォーカス時もホバーと同じ色 */
-        }
-        #explanation-container {
-        margin-top: 20px;
-        padding: 10px;
-        font-size: 30px;
-        border-top: 1px solid #101111;
-
-        }
-
-        .explanation-item {
-        margin-bottom: 15px;
-        padding: 10px;
-        border: 5px solid #5ba7f2;
-        border-radius: 5px;
-        background-color: #090909;
-        color: #5ba7f2;
-        border-radius: 32px;
-        }
-
-        .explanation-item strong {
-        color: #091db6;
+        .large {
+            font-size: 1.5em;
         }
     </style>
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
-    <div id="quiz-container">
-        <div id="start-screen">
-            <h1 class="wf-nicomoji">アイクラクイズ</h1>
-            <button class="start-button" onclick="startQuiz()">スタート</button>
-        </div>
-        <div id="question-screen" style="display: none;">
-            <h2 id="question-title" class="wf-roundedmplus1c">ここに質問が表示されます</h2>
-            <div id="choices"></div>
-            <h3 id="timer" class="wf-nicomoji"></h3>
-            <button class="start-button" onclick="giveup()">わかんない</button>
-        </div>
-        <div id="result-screen" style="display: none;">
-            <h1>～結果発表～</h1>
-            <p id="result-text" class="wf-nicomoji">あなたのスコアは 0 です。</p>
-            <p id="last-text" class="wf-nicomoji">いいかんじのメッセージ</p>
-            <button class="start-button" onclick="restartQuiz()">ときをもどす</button>
-            
-        </div>
+<header>
+    <div class="site-title">
+        <img src="quiz/dotpopo-removebg-preview.png" alt="左画像" class="side-image">
+        <p class="text">アイクラ道場</p>
+        <img src="quiz/dotnana-removebg-preview.png" alt="右画像" class="side-image">
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br>
-    <p id="normal-container"><span >回答と解説</span></p>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="quiz/index.html">アイクラクイズ</a></li>
+            <li><a href="combo/combo.html">即死コンボドリル</a></li>
+            <li><a href="#">切り離しアドバイス</a></li>
+            <li><a href="gomquiz/gom.html">100均ゴムゲーム</a></li>
+            <li><a href="home.html">ホーム</a></li>
+        </ul>
+    </nav>
+</header>
+    <div id="quiz-container"><b>
+        <span class="large">ここはアイクラを愛し、アイクラに愛されるクライマーによるサイト<br>
+        好きな項目を選んでね<br><br></span>
+        <a href="quiz/index.html">アイクラクイズ</a><br>
+        10問のアイクラにまつわるクイズに挑戦！きみは何問解けるかな？<br><br>
+        <a href="combo/combo.html">即死コンボドリル</a><br>
+        様々なコンボルートが表示されるからトレモでできるか挑戦だ！<br><br>
+        切り離しアドバイス<br>
+        切り離しが難しい！って人はぜひ覗いてみてね<br><br>
+        <a href="gomquiz/gom.html">100均ゴムゲーム</a><br>
+        このゴム切れる？切れない？を当てる簡単なゲームだよ！
+    
+    
+    </b>
+    </div>
+    
 
-    <div id="explanation-container" class="wf-roundedmplus1c"></div> <!-- 解説コンテナ -->
-
-    <script src="script.js"></script>
 </body>
 </html>
