@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即死コンボドリル</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+    <link rel="icon" href="../quiz/favicon.ico" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('../quiz/aikura.png'); /* 画像パス */
+            background-size: 50% auto; /* 横幅いっぱい、高さは自動調整 */
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .wf-nicomoji { 
+            font-family: "Nico Moji"; 
+            font-size: 48px;
+        }
+
+        .wf-roundedmplus1c {
+             font-family: "M PLUS Rounded 1c"; 
+        }
+
+        #normal-container {
+            display: none;
+            background-color: black;
+            color: #5ba7f2;
+            margin: 50px auto;
+            padding: 20px;
+            max-width: 200px;
+            font-size: 30px;
+            font-family: "M PLUS Rounded 1c";
+            border: 3px solid #5ba7f2;
+            border-radius: 32px;
+        }
+
+        #quiz-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            font-size: 20px;
+            background-color: rgb(159, 218, 249);
+            color: black;
+            border: 6px solid blue;
+            border-radius: 32px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .start-button {
+            font-family: "Nico Moji"; 
+            color: black;
+            padding: 10px 20px;
+            font-size: 32px;
+            margin-top: 20px;
+            text-decoration: none;    /* 下線を削除 */
+            background: none;         /* ボタンの背景色を削除 */
+            border: none;
+            cursor: pointer;          /* カーソルをボタン風に */
+            text-decoration: none;    /* 文字の装飾を削除 */
+            transition: color 0.3s, transform 0.2s; /* 色と動きの変化をなめらかに */
+        }
+        .start-button:hover {
+            color: blue;           /* ホバー時の文字色 */
+            transform: scale(1.1);    /* 少し拡大 */
+        }
+        .start-button:focus {
+            outline: none;            /* フォーカス時の枠を消す */
+            color: blue;           /* フォーカス時もホバーと同じ色 */
+        }
+
+        .ans-button {
+            font-family: "Nico Moji"; 
+            color: black;
+            padding: 10px 20px;
+            font-size: 30px;
+            margin-top: 20px;
+            text-decoration: none;    /* 下線を削除 */
+            background: none;         /* ボタンの背景色を削除 */
+            border: none;
+            cursor: pointer;          /* カーソルをボタン風に */
+            text-decoration: none;    /* 文字の装飾を削除 */
+            transition: color 0.3s, transform 0.2s; /* 色と動きの変化をなめらかに */
+        }
+        .ans-button:hover {
+            color: blue;           /* ホバー時の文字色 */
+            transform: scale(1.1);    /* 少し拡大 */
+        }
+        .ans-button:focus {
+            outline: none;            /* フォーカス時の枠を消す */
+            color: blue;           /* フォーカス時もホバーと同じ色 */
+        }
+        #explanation-container {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 30px;
+        border-top: 1px solid #101111;
+
+        }
+
+        .explanation-item {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 5px solid #5ba7f2;
+        border-radius: 5px;
+        background-color: #090909;
+        color: #5ba7f2;
+        border-radius: 32px;
+        }
+
+        .explanation-item strong {
+        color: #091db6;
+        }
+
+    </style>
+    <link rel="stylesheet" href="../header.css">
+</head>
+<body>
+<header>
+    <div class="site-title">
+        <img src="../quiz/dotpopo-removebg-preview.png" alt="左画像" class="side-image">
+        <p class="text">アイクラ道場</p>
+        <img src="../quiz/dotnana-removebg-preview.png" alt="右画像" class="side-image">
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="../quiz/quiz.html">アイクラクイズ</a></li>
+            <li><a href="../combo/combo.html">即死コンボドリル</a></li>
+            <li><a href="#">切り離しアドバイス</a></li>
+            <li><a href="gom.html">100均ゴムゲーム</a></li>
+            <li><a href="../index.html">ホーム</a></li>
+        </ul>
+    </nav>
+</header>
+    <div id="quiz-container">
+        <div id="start-screen">
+            <h1 class="wf-nicomoji">100均ゴムゲーム</h1>
+            <button class="start-button" onclick="startQuiz()">スタート</button>
+        </div>
+        <div id="root-screen" style="display: none;">
+            <video id="combo-video" width="640" height="360" controls autoplay muted>
+                <source id="video-source" src="" type="video/mp4">
+                eroor
+            </video>
+            <h3 class="wf-roundedmplus1c">この後復帰は？</h3>
+            <h4 id="exp" class="wf-roundedmplus1c"></h4>
+            <button id= "textt" class="start-button" onclick="nevergiveup()">つぎ！</button> <button id= "textt2" class="start-button" onclick="giveup()">あきらめる</button>
+        </div>
+        <div id="result-screen" style="display: none;">
+            <h1 class="wf-nicomoji">おつかれさまでした！</h1>
+            <p id="result-text" class="wf-nicomoji">どれくらいコンボができたかな？できなかったコンボはれんしゅうだ！</p>
+            <button class="start-button" onclick="restartQuiz()">はじめから</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

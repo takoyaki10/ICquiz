@@ -1,0 +1,56 @@
+header {
+    text-align: center;
+    background-color: #030303;
+    color: rgb(53, 103, 240);
+    padding: 10px 0;
+}
+
+/* サイトタイトル */
+.site-title {
+    display: flex;
+    font-family: "M PLUS Rounded 1c"; 
+    font-size: 40px;
+    font-weight: bold;
+    padding: 0px 0;
+    align-items: center; /* 縦の中央揃え */
+    justify-content: center; /* 横の中央揃え */
+    text-align: center;
+}
+
+/* ナビゲーション */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #141414;
+}
+
+/* 各リンクのスタイル */
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(255, 152, 246);
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav-links a:hover {
+    background-color: #5f5e5f;
+}
+
+.side-image {
+    height: 30px; /* 画像の高さを指定 */
+    width: auto;   /* アスペクト比を維持 */
+    margin: 0 10px; /* 文字との間隔 */;
+}
+
+.text {
+    display: flex; /* インライン要素ではなく、適切に配置 */
+    align-items: center; /* 文字を縦方向の中央に揃える */
+    margin: 0; /* 余白をリセット */
+}
